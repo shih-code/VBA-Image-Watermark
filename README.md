@@ -147,3 +147,5 @@ Windows 會把從網路下載的檔案自動標記為「來自網際網路」，
 ## 授權
 
 程式碼採 MIT License，完整條款見本專案 `LICENSE` 檔案。
+
+Shih.VBAImageWatermark
