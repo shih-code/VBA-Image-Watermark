@@ -9,7 +9,7 @@
 ' FORBIDDEN: 嚴禁在此模組直接讀寫任何 Excel 儲存格；嚴禁繞過 Mod_InteractionAdapter
 '            直接操作工作表物件（見 ADR-004，本模組僅持有跨模組調度順序知識）。
 ' DEPENDENCIES: ACDS_ContractRegistry.md, ACDS_DependencyGraph.md
-' VERSION: 1.0.0 [Stability: Stable]
+' VERSION: 1.0.1 [Stability: Stable]
 ' ==========================================================
 Option Explicit
 Option Private Module
@@ -70,7 +70,7 @@ Public Sub RunPhase1(ByVal isFileMode As Boolean)
     Set dicSysTokens = CreateObject(PROGID_DICTIONARY)
     dicSysTokens.Add "FSO", CreateObject(PROGID_FSO)
     dicSysTokens.Add "STREAM", CreateObject(PROGID_STREAM)
-    dicSysTokens.Add "MD5", CreateObject(PROGID_MD5)
+    dicSysTokens.Add "MD5", New cls_PureMD5
     
     ' 5. 【v2 固定拓撲】確保「作業資料夾／匯入圖片／成果／備份」四層結構存在，
     '    取回固定的匯入圖片資料夾路徑，不再需要每次動態跳號計算
@@ -193,7 +193,7 @@ Public Sub RunPhase2()
     Set dicSysTokens = CreateObject(PROGID_DICTIONARY)
     dicSysTokens.Add "FSO", CreateObject(PROGID_FSO)
     dicSysTokens.Add "STREAM", CreateObject(PROGID_STREAM)
-    dicSysTokens.Add "MD5", CreateObject(PROGID_MD5)
+    dicSysTokens.Add "MD5", New cls_PureMD5
     Call Mod_InteractionAdapter.NeutralizeZoomState(dicSysTokens)
     
     objDAG.StartPipeline LOG_DAG_P2_EXPORT
