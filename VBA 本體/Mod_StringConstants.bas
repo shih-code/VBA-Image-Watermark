@@ -379,7 +379,6 @@ Public Const MSG_SKIP_SUFFIX            As String = " 張內容重複的圖片�
 ' ==========================================================
 Public Const PROGID_FSO                 As String = "Scripting.FileSystemObject"
 Public Const PROGID_STREAM              As String = "ADODB.Stream"
-Public Const PROGID_MD5                 As String = "System.Security.Cryptography.MD5CryptoServiceProvider"
 Public Const PROGID_WIA_IMAGE           As String = "WIA.ImageFile"
 Public Const PROGID_WIA_PROCESS         As String = "WIA.ImageProcess"
 Public Const PROGID_DICTIONARY          As String = "Scripting.Dictionary"
